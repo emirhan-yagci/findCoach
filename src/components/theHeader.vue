@@ -7,7 +7,7 @@
     <router-link to="/" class="font-bold text-3xl ">Find Coach</router-link>
     <div class="space-x-5 font-semibold">
         <router-link to="/coaches" class="px-6 py-3 rounded-lg transition-all hover:bg-purple-700">All Coaches</router-link>
-        <router-link to="/contacts" class="px-6 py-3 rounded-lg transition-all hover:bg-purple-700">Contacts</router-link>
+        <router-link :to="{name:'contactPage'}" class="px-6 py-3 rounded-lg transition-all hover:bg-purple-700">Contacts</router-link>
     </div>
   </nav>
 </template>

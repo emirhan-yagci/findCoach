@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html",
-  "./src/**/*.{vue,js}"],
+  "./src/**/*.{vue,js,svg}"],
   theme: {
     screens: {
       '2xl': {'max': '1535px'},

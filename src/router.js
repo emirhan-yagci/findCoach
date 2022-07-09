@@ -7,12 +7,12 @@ import registerCoach from "./components/coach/registerCoach.vue"
 import theContacts from "./components/coach/coachContacts.vue"
 const routes = [
  { path: "/", redirect:"/coaches"},
- { path: "/coaches", components:{
+ { path: "/coaches", name:"coachPage" , components:{
     default:coachList,
     searchCoach:searchCoach
  }},
- { path: "/contacts", component:theContacts},
- { path: "/register", component:registerCoach}
+ { path: "/contacts",name:"contactPage", component:theContacts},
+ {path: "/register",name:"registerPage", component:registerCoach}
 
 
 

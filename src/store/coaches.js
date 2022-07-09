@@ -4,15 +4,23 @@ export const useCoachStore = defineStore("cardStore", {
   state: () => {
     return {
       isRegistered: false,
-      allCoach:[]
+      allCoach: [],
     };
   },
   getters: {},
   actions: {
-    async fetchCoaches(){
-    const coaches =await (await fetch("https://findcoach-d02ab-default-rtdb.firebaseio.com/coaches.json")).json()
-        console.log(coaches);
-        
-    }
+    async fetchCoaches() {
+      const coaches = await (
+        await fetch(
+          "https://findcoach-d02ab-default-rtdb.firebaseio.com/coaches.json"
+        )
+      ).json();
+      const coachArr = [];
+      //push all coach to coachArr
+      for (const item in coaches) {
+        coachArr.push(coaches[item]);
+      }
+      return coachArr;
+    },
   },
 });

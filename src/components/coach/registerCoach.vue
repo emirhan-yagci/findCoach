@@ -35,7 +35,7 @@ function sendRegisterRequest() {
       "danger",
       "bottom-left"
     );
-  } else {
+  } else if(useCoachStore().isRegistered == false) {
     fetch("https://findcoach-d02ab-default-rtdb.firebaseio.com/coaches.json", {
       method: "POST",
       headers: {
