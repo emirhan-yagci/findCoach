@@ -5,6 +5,7 @@ import coachList from "./components/coach/coachList.vue"
 import searchCoach from "./components/coach/searchCoach.vue"
 import registerCoach from "./components/coach/registerCoach.vue"
 import theContacts from "./components/coach/coachContacts.vue"
+import detailsCoach from "./components/coach/detailsCoach.vue"
 const routes = [
  { path: "/", redirect:"/coaches"},
  { path: "/coaches", name:"coachPage" , components:{
@@ -12,8 +13,8 @@ const routes = [
     searchCoach:searchCoach
  }},
  { path: "/contacts",name:"contactPage", component:theContacts},
- {path: "/register",name:"registerPage", component:registerCoach}
-
+ {path: "/register",name:"registerPage", component:registerCoach},
+ {path: "/details/:coachId",name:"detailsPage", component:detailsCoach}
 
 
 ]

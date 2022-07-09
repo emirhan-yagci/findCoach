@@ -5,6 +5,7 @@ export const useCoachStore = defineStore("cardStore", {
     return {
       isRegistered: false,
       allCoach: [],
+      selectedCoachId:null,
     };
   },
   getters: {},

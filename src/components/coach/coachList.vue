@@ -46,7 +46,7 @@ provide("coachData",coachWrap)
         </div>
         <router-link
         v-if="useCoachStore().isRegistered == false"
-          to="register"
+          :to="{name:'registerPage'}"
           class="px-4 py-2 bg-purple-600 text-white rounded-3xl"
           >Register as Coach</router-link
         >
