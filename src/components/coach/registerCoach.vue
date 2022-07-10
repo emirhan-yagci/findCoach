@@ -21,6 +21,7 @@ function showAlert(text, description, type, position) {
     }
   );
 }
+
 function sendRegisterRequest() {
   if (
     firstName.value.trim().length == 0 ||

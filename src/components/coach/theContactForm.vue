@@ -4,17 +4,37 @@ import { ref } from "vue"
 import BaseContainer from "../ui/baseContainer.vue";
 import { useCoachStore } from "../../store/coaches";
 
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 const route = useRoute();
 const router = useRouter();
 
 const coachStore = useCoachStore();
 const messageArea = ref("")
-//TODO : DİREK URLDEN GELENLERE BAK
+
 function sendMessage(){
   alert("inside")
     let selectedCoach = route.params.coachId;
+    try{
     coachStore.setContact(selectedCoach,messageArea.value.value);
+      showAlert("Successful","Contact request sended","success","bottom-left")
+    }catch(e){
+      showAlert("Unsuccesful","Contact request failed","warning","bottom-left")
+    }
     router.push("/coaches")
+}
+
+
+
+function showAlert(text, description, type, position) {
+  createToast(
+    { title: text, description: description },
+    {
+      type: type,
+      position: position,
+      showIcon: true,
+    }
+  );
 }
 </script>
 
