@@ -2,8 +2,7 @@
 import { ref,provide } from "vue";
 
 import { useCoachStore } from "../../store/coaches.js";
-
-import coachItem from "./coachItem.vue"
+import coachItems from "./coachItem.vue"
 import BaseContainer from "../ui/baseContainer.vue";
 
 
@@ -13,8 +12,10 @@ let coachWrap = ref([]);
 
 let isRefreshing = ref(false);
 function refreshCoach() {
+  coachWrap.value = []
   isRefreshing.value = true;
   coachWrap.value = coachStore.fetchCoaches().then((data) => {
+    console.log(coachStore.allCoach);
     isRefreshing.value = false;
     coachWrap.value = data;
   });
@@ -22,7 +23,7 @@ function refreshCoach() {
 refreshCoach();
 
 provide("coachData",coachWrap)
-
+console.log(coachWrap);
 </script>
 
 <template>
@@ -55,7 +56,7 @@ provide("coachData",coachWrap)
       </div>
       <!--COACH LİST WRAPPER-->
       <div v-if="!isRefreshing" class="space-y-5 py-5">
-       <coach-item></coach-item>
+       <coach-items></coach-items>
       </div>
       <!--loading svg-->
       <div v-else class="flex items-center justify-center">

@@ -15,9 +15,5 @@
 
 
 <style scoped>
-section > div{
-    border-radius: 15px;
-        box-shadow: 0 0 51px rgb(250 137 54 / 74%);
 
-}
 </style>

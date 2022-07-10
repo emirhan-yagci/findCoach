@@ -11,17 +11,17 @@ export const useCoachStore = defineStore("cardStore", {
   getters: {},
   actions: {
     async fetchCoaches() {
+      this.allCoach = []
       const coaches = await (
         await fetch(
           "https://findcoach-d02ab-default-rtdb.firebaseio.com/coaches.json"
         )
       ).json();
-      const coachArr = [];
       //push all coach to coachArr
       for (const item in coaches) {
-        coachArr.push(coaches[item]);
+        this.allCoach.push(coaches[item]);
       }
-      return coachArr;
+      return this.allCoach;
     },
   },
 });

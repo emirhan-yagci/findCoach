@@ -1,6 +1,6 @@
 <script setup>
     import { defineProps } from 'vue';
-      import { useCoachStore } from '../../store/coaches';
+    import { useCoachStore } from '../../store/coaches';
 
 import { useRouter,useRoute } from 'vue-router'
     const router = useRouter()

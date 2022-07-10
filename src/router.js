@@ -12,9 +12,9 @@ const routes = [
     default:coachList,
     searchCoach:searchCoach
  }},
- { path: "/contacts",name:"contactPage", component:theContacts},
+ {path: "/coaches/details/:coachId",name:"detailsPage", component:detailsCoach},
+ {path: "/contacts",name:"contactPage", component:theContacts},
  {path: "/register",name:"registerPage", component:registerCoach},
- {path: "/details/:coachId",name:"detailsPage", component:detailsCoach}
 
 
 ]
