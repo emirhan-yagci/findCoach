@@ -6,6 +6,7 @@ export const useCoachStore = defineStore("cardStore", {
       isRegistered: false,
       allCoach: [],
       selectedCoachId:null,
+      contacts:[]
     };
   },
   getters: {},
@@ -23,5 +24,10 @@ export const useCoachStore = defineStore("cardStore", {
       }
       return this.allCoach;
     },
+    setContact(id){
+      let selectedCoach = this.allCoach[id];
+      console.log(selectedCoach);
+      this.contacts.push(selectedCoach);
+    }
   },
 });

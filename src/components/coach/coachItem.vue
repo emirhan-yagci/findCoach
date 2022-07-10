@@ -3,7 +3,6 @@ import {inject,provide} from "vue";
 
 let coachData = inject("coachData")
 
-console.log(coachData.value[2]);
 </script>
 <template>
   

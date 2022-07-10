@@ -15,7 +15,6 @@ function refreshCoach() {
   coachWrap.value = []
   isRefreshing.value = true;
   coachWrap.value = coachStore.fetchCoaches().then((data) => {
-    console.log(coachStore.allCoach);
     isRefreshing.value = false;
     coachWrap.value = data;
   });
@@ -23,7 +22,6 @@ function refreshCoach() {
 refreshCoach();
 
 provide("coachData",coachWrap)
-console.log(coachWrap);
 </script>
 
 <template>
