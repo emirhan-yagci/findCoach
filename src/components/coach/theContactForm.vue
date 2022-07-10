@@ -1,15 +1,20 @@
 <script setup>
-import { useRoute } from "vue-router";
+import { useRoute,useRouter } from "vue-router";
+import { ref } from "vue"
 import BaseContainer from "../ui/baseContainer.vue";
 import { useCoachStore } from "../../store/coaches";
 
 const route = useRoute();
+const router = useRouter();
+
 const coachStore = useCoachStore();
+const messageArea = ref("")
 //TODO : DİREK URLDEN GELENLERE BAK
 function sendMessage(){
+  alert("inside")
     let selectedCoach = route.params.coachId;
-    coachStore.setContact(selectedCoach);
-    console.log(coachStore.contacts);
+    coachStore.setContact(selectedCoach,messageArea.value.value);
+    router.push("/coaches")
 }
 </script>
 
@@ -23,6 +28,7 @@ function sendMessage(){
       <div class="flex flex-col">
         <label for="" class="font-semibold">Message</label>
         <textarea
+        ref="messageArea"
           class="formInputs"
           name=""
           id=""

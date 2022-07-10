@@ -47,6 +47,7 @@ function sendRegisterRequest() {
         description: description.value,
         hourlyPrice: `$${hourlyPrice.value}/hour`,
         expertise: expertise.value,
+        
       }),
     }).then((res) => {
       if (res.ok) {

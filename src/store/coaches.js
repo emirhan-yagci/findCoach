@@ -5,14 +5,14 @@ export const useCoachStore = defineStore("cardStore", {
     return {
       isRegistered: false,
       allCoach: [],
-      selectedCoachId:null,
-      contacts:[]
+      selectedCoachId: null,
+      contacts: [],
     };
   },
   getters: {},
   actions: {
     async fetchCoaches() {
-      this.allCoach = []
+      this.allCoach = [];
       const coaches = await (
         await fetch(
           "https://findcoach-d02ab-default-rtdb.firebaseio.com/coaches.json"
@@ -24,10 +24,18 @@ export const useCoachStore = defineStore("cardStore", {
       }
       return this.allCoach;
     },
-    setContact(id){
-      let selectedCoach = this.allCoach[id];
-      console.log(selectedCoach);
-      this.contacts.push(selectedCoach);
-    }
+    setContact(id,message) {
+      if (this.allCoach.length == 0) {
+        this.fetchCoaches().then(() => {
+          let selectedCoach = this.allCoach[id];
+          this.contacts.push({selectedCoach:selectedCoach,message:message,id:id});
+          console.log(this.contacts);
+        });
+      } else {
+        let selectedCoach = this.allCoach[id];
+        this.contacts.push({selectedCoach:selectedCoach,message:message,id:id});
+        console.log(this.contacts);
+      }
+    },
   },
 });

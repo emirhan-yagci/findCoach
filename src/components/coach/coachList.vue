@@ -1,10 +1,9 @@
 <script setup>
-import { ref,provide } from "vue";
+import { ref, provide } from "vue";
 
 import { useCoachStore } from "../../store/coaches.js";
-import coachItems from "./coachItem.vue"
+import coachItems from "./coachItem.vue";
 import BaseContainer from "../ui/baseContainer.vue";
-
 
 const coachStore = useCoachStore();
 
@@ -12,16 +11,17 @@ let coachWrap = ref([]);
 
 let isRefreshing = ref(false);
 function refreshCoach() {
-  coachWrap.value = []
+  coachWrap.value = [];
   isRefreshing.value = true;
   coachWrap.value = coachStore.fetchCoaches().then((data) => {
     isRefreshing.value = false;
     coachWrap.value = data;
+    console.log(coachWrap);
   });
 }
 refreshCoach();
 
-provide("coachData",coachWrap)
+provide("coachData", coachWrap);
 </script>
 
 <template>
@@ -44,17 +44,18 @@ provide("coachData",coachWrap)
           Refresh
         </div>
         <router-link
-        v-if="useCoachStore().isRegistered == false"
-          :to="{name:'registerPage'}"
+          v-if="useCoachStore().isRegistered == false"
+          :to="{ name: 'registerPage' }"
           class="px-4 py-2 bg-purple-600 text-white rounded-3xl"
           >Register as Coach</router-link
         >
-                <div v-else class="px-4 py-2 bg-red-600 text-white rounded-3xl">You Already Registered</div>
-
+        <div v-else class="px-4 py-2 bg-red-600 text-white rounded-3xl">
+          You Already Registered
+        </div>
       </div>
       <!--COACH LİST WRAPPER-->
       <div v-if="!isRefreshing" class="space-y-5 py-5">
-       <coach-items></coach-items>
+        <coach-items v-for="(coach,index) in coachWrap" :key="coach" :selectedCoachData="coach" :selectedCoachId="index"></coach-items>
       </div>
       <!--loading svg-->
       <div v-else class="flex items-center justify-center">

@@ -5,7 +5,7 @@ import coachList from "./components/coach/coachList.vue"
 import searchCoach from "./components/coach/searchCoach.vue"
 import registerCoach from "./components/coach/registerCoach.vue"
 import theContacts from "./components/coach/coachContacts.vue"
-import theContact from "./components/coach/theContact.vue"
+import theContact from "./components/coach/theContactForm.vue"
 
 import detailsCoach from "./components/coach/detailsCoach.vue"
 const routes = [
