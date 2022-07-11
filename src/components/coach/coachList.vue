@@ -1,22 +1,68 @@
 <script setup>
-import { ref, provide } from "vue";
+import { ref, provide, inject, defineProps, watch } from "vue";
 
 import { useCoachStore } from "../../store/coaches.js";
 import coachItems from "./coachItem.vue";
 import BaseContainer from "../ui/baseContainer.vue";
 
+const props = defineProps(["expertWrapper"]);
+const coachItemContainer = ref("");
+//when user select any expert for filter will execute
+watch(
+  () => {
+    return props.expertWrapper;
+  },
+  (newValue, oldValue) => {
+    const coachesWrapper = useCoachStore().allCoach;
+    //get choosed experties and push this array
+    const choosedExpert = Object.values(props.expertWrapper);
+    //get loop the all coachItem
+    coachesWrapper.forEach((item, index) => {
+      const virtualExpertise = []
+      item.expertise.forEach((expert,index)=>{
+          virtualExpertise.push(expert)
+      })
+      //if user delete chooses again show all
+      if(choosedExpert.length == 0 ){
+        Array.from(coachItemContainer.value.children).forEach(()=>{
+            coachItemContainer.value.children[index].style.display = "block";
+        })
+      }else if(virtualExpertise.length == choosedExpert.length){
+        let isTrue = false;
+         choosedExpert.forEach((choosed,choosedIndex)=>{
+          if(choosed == virtualExpertise[choosedIndex]){
+            isTrue = true;
+          }else{
+            isTrue = false
+          }
+      })
+      //Delete commands
+      if(isTrue){
+        coachItemContainer.value.children[index].style.display = "block";
+      }else{
+        coachItemContainer.value.children[index].style.display = "none";
+      }
+      }else{
+        coachItemContainer.value.children[index].style.display = "none";
+
+      }
+     
+
+    });
+  }
+);
+
 const coachStore = useCoachStore();
 
 let coachWrap = ref([]);
-
 let isRefreshing = ref(false);
 function refreshCoach() {
-  coachWrap.value = [];
   isRefreshing.value = true;
+  coachWrap.value = [];
+
   coachWrap.value = coachStore.fetchCoaches().then((data) => {
     isRefreshing.value = false;
     coachWrap.value = data;
-    console.log(coachWrap);
   });
 }
 refreshCoach();
@@ -54,8 +100,13 @@ provide("coachData", coachWrap);
         </div>
       </div>
       <!--COACH LİST WRAPPER-->
-      <div v-if="!isRefreshing" class="space-y-5 py-5">
-        <coach-items v-for="(coach,index) in coachWrap" :key="coach" :selectedCoachData="coach" :selectedCoachId="index"></coach-items>
+      <div v-if="!isRefreshing" class="space-y-5 py-5" ref="coachItemContainer">
+        <coach-items
+          v-for="(coach, index) in coachWrap"
+          :key="coach"
+          :selectedCoachData="coach"
+          :selectedCoachId="index"
+        ></coach-items>
       </div>
       <!--loading svg-->
       <div v-else class="flex items-center justify-center">

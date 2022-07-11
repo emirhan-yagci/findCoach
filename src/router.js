@@ -2,7 +2,7 @@ import { createRouter,createWebHistory } from "vue-router";
 
 //***************-----------COMPONENTS--------****************** */
 import coachList from "./components/coach/coachList.vue"
-import searchCoach from "./components/coach/searchCoach.vue"
+import searchCoach from "./components/coach/filterExpertise.vue"
 import registerCoach from "./components/coach/registerCoach.vue"
 import theContacts from "./components/coach/coachContacts.vue"
 import theContact from "./components/coach/theContactForm.vue"

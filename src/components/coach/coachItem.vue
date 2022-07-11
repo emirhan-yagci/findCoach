@@ -7,7 +7,7 @@ const props = defineProps(["selectedCoachData","selectedCoachId"])
   
    <div
          
-          class="border-2 border-green-500 p-4 text-black rounded-lg"
+          class="border-2 border-green-500 p-4 text-black rounded-lg coachItem" 
         >
           <div class="space-y-2">
             <h1 class="font-bold text-xl">

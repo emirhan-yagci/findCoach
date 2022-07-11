@@ -1,16 +1,18 @@
 <script setup>
 import { ref } from "vue";
-
+import { useRouter } from "vue-router";
 import BaseContainer from "../ui/baseContainer.vue";
 import { createToast } from "mosha-vue-toastify";
 import "mosha-vue-toastify/dist/style.css";
 import { useCoachStore } from "../../store/coaches.js";
 
+const router = useRouter()
 const firstName = ref("");
 const lastName = ref("");
 const description = ref("");
 const hourlyPrice = ref("");
 const expertise = ref([]);
+
 function showAlert(text, description, type, position) {
   createToast(
     { title: text, description: description },
@@ -53,6 +55,7 @@ function sendRegisterRequest() {
     }).then((res) => {
       if (res.ok) {
         useCoachStore().isRegistered = true;
+        router.push("/coaches")
         showAlert(
           "Succesfull",
           "Registration completed",
