@@ -15,12 +15,13 @@ watch(
   (newValue, oldValue) => {
     const coachesWrapper = useCoachStore().allCoach;
     //get choosed experties and push this array
-    const choosedExpert = Object.values(props.expertWrapper);
+    const choosedExpert = Object.values(props.expertWrapper).sort();
     //get loop the all coachItem
     coachesWrapper.forEach((item, index) => {
       const virtualExpertise = []
       item.expertise.forEach((expert,index)=>{
           virtualExpertise.push(expert)
+          virtualExpertise.sort()
       })
       //if user delete chooses again show all
       if(choosedExpert.length == 0 ){
