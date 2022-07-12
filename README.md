@@ -4,8 +4,8 @@
 
 ## Technologies
 
-- HTML <img width="15px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
-- Tailwind  <img src="https://github.com/emirhan-yagci/findCoach/blob/main/public/Tailwind_CSS_Logo.svg.png" />
+- HTML
+- Tailwind 
 - Vue.js (Composition API)
 - Vue Router
 - Pinia 
