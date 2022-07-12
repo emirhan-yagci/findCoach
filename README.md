@@ -24,4 +24,4 @@ $ yarn add mosha-vue-toastify
 ```
 
 ## Start Setup
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+![Demo](https://github.com/emirhan-yagci/findCoach/blob/main/public/resim_2022-07-12_125740409.png)
