@@ -16,7 +16,7 @@ function navBack() {
     class="
       w-full
       relative
-      bg-purple-500
+      bg-blue-500
       flex
       justify-between
       items-center
@@ -29,12 +29,12 @@ function navBack() {
     <div class="space-x-5 font-semibold">
       <router-link
         :to="{ name: 'coachPage' }"
-        class="px-6 py-3 rounded-lg transition-all hover:bg-purple-700"
+        class="px-6 py-3 rounded-lg transition-all hover:bg-blue-800"
         >All Coaches</router-link
       >
       <router-link
         :to="{ name: 'contactsPage' }"
-        class="px-6 py-3 rounded-lg transition-all hover:bg-purple-700"
+        class="px-6 py-3 rounded-lg transition-all hover:bg-blue-600/50"
         >Contacts</router-link
       >
     </div>
@@ -62,7 +62,7 @@ function navBack() {
 
 <style scoped>
 .route-active {
-  @apply bg-purple-700;
+  @apply bg-blue-900;
 }
 </style>
 
