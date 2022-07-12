@@ -1,7 +1,14 @@
-# Vue 3 + Vite
+# Find Coach
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> You can share advert as coach or you can find coach for you and contact them!  
 
-## Recommended IDE Setup
+## Technologies
 
+- HTML <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+- Tailwind  <img src="https://github.com/emirhan-yagci/findCoach/blob/main/public/Tailwind_CSS_Logo.svg.png" />
+- Vue.js (Composition API)
+- Vue Router
+- Pinia 
+
+## Start Setup
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
