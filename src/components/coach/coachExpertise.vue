@@ -12,7 +12,6 @@ try {
   selectedExpertise.value = coachStore.allCoach[props.coachId].expertise;
 } catch (e) {
   coachStore.fetchCoaches().then(() => {
-
     selectedExpertise.value = coachStore.allCoach[props.coachId].expertise;
   });
 }
@@ -20,7 +19,6 @@ try {
 
 <template>
   <div
- 
     class="
       flex flex-wrap
       items-start

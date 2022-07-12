@@ -1,6 +1,6 @@
 <script setup>
-import { useRoute,useRouter } from "vue-router";
-import { ref } from "vue"
+import { useRoute, useRouter } from "vue-router";
+import { ref } from "vue";
 import BaseContainer from "../ui/baseContainer.vue";
 import { useCoachStore } from "../../store/coaches";
 
@@ -10,21 +10,24 @@ const route = useRoute();
 const router = useRouter();
 
 const coachStore = useCoachStore();
-const messageArea = ref("")
+const messageArea = ref("");
 
-function sendMessage(){
-  alert("inside")
-    let selectedCoach = route.params.coachId;
-    try{
-    coachStore.setContact(selectedCoach,messageArea.value.value);
-      showAlert("Successful","Contact request sended","success","bottom-left")
-    }catch(e){
-      showAlert("Unsuccesful","Contact request failed","warning","bottom-left")
-    }
-    router.push("/coaches")
+function sendMessage() {
+  alert("inside");
+  let selectedCoach = route.params.coachId;
+  try {
+    coachStore.setContact(selectedCoach, messageArea.value.value);
+    showAlert("Successful", "Contact request sended", "success", "bottom-left");
+  } catch (e) {
+    showAlert(
+      "Unsuccesful",
+      "Contact request failed",
+      "warning",
+      "bottom-left"
+    );
+  }
+  router.push("/coaches");
 }
-
-
 
 function showAlert(text, description, type, position) {
   createToast(
@@ -48,7 +51,7 @@ function showAlert(text, description, type, position) {
       <div class="flex flex-col">
         <label for="" class="font-semibold">Message</label>
         <textarea
-        ref="messageArea"
+          ref="messageArea"
           class="formInputs"
           name=""
           id=""
@@ -57,7 +60,9 @@ function showAlert(text, description, type, position) {
         ></textarea>
       </div>
       <div @click="sendMessage" class="text-center">
-        <button class="px-4 py-2 bg-purple-700 text-white rounded-md">Send Message</button>
+        <button class="px-4 py-2 bg-purple-700 text-white rounded-md">
+          Send Message
+        </button>
       </div>
     </div>
   </BaseContainer>

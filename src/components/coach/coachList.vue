@@ -18,37 +18,34 @@ watch(
     const choosedExpert = Object.values(props.expertWrapper).sort();
     //get loop the all coachItem
     coachesWrapper.forEach((item, index) => {
-      const virtualExpertise = []
-      item.expertise.forEach((expert,index)=>{
-          virtualExpertise.push(expert)
-          virtualExpertise.sort()
-      })
+      const virtualExpertise = [];
+      item.expertise.forEach((expert, index) => {
+        virtualExpertise.push(expert);
+        virtualExpertise.sort();
+      });
       //if user delete chooses again show all
-      if(choosedExpert.length == 0 ){
-        Array.from(coachItemContainer.value.children).forEach(()=>{
-            coachItemContainer.value.children[index].style.display = "block";
-        })
-      }else if(virtualExpertise.length == choosedExpert.length){
+      if (choosedExpert.length == 0) {
+        Array.from(coachItemContainer.value.children).forEach(() => {
+          coachItemContainer.value.children[index].style.display = "block";
+        });
+      } else if (virtualExpertise.length == choosedExpert.length) {
         let isTrue = false;
-         choosedExpert.forEach((choosed,choosedIndex)=>{
-          if(choosed == virtualExpertise[choosedIndex]){
+        choosedExpert.forEach((choosed, choosedIndex) => {
+          if (choosed == virtualExpertise[choosedIndex]) {
             isTrue = true;
-          }else{
-            isTrue = false
+          } else {
+            isTrue = false;
           }
-      })
-      //Delete commands
-      if(isTrue){
-        coachItemContainer.value.children[index].style.display = "block";
-      }else{
+        });
+        //Delete commands
+        if (isTrue) {
+          coachItemContainer.value.children[index].style.display = "block";
+        } else {
+          coachItemContainer.value.children[index].style.display = "none";
+        }
+      } else {
         coachItemContainer.value.children[index].style.display = "none";
       }
-      }else{
-        coachItemContainer.value.children[index].style.display = "none";
-
-      }
-     
-
     });
   }
 );

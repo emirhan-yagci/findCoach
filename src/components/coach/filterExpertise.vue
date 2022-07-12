@@ -1,12 +1,11 @@
 <script setup>
-import { ref , defineEmits} from "vue";
+import { ref, defineEmits } from "vue";
 import BaseContainer from "../ui/baseContainer.vue";
-const selectedExpert = ref([])
-const emit = defineEmits(["filteredExpert"])
+const selectedExpert = ref([]);
+const emit = defineEmits(["filteredExpert"]);
 function selectExpert() {
-  emit("filteredExpert",selectedExpert.value);
+  emit("filteredExpert", selectedExpert.value);
 }
-
 </script>
 
 <template>
@@ -14,7 +13,7 @@ function selectExpert() {
     <div class="cardDefaults">
       <h2 class="font-semibold text-xl">Find Your Coach</h2>
       <div class="space-x-2 items-center">
-        <span >
+        <span>
           <input
             id="_frontend"
             type="checkbox"
@@ -22,9 +21,7 @@ function selectExpert() {
             v-model="selectedExpert"
             @change="selectExpert"
           />
-          <label for="_frontend" 
-            >Frontend Development</label
-          >
+          <label for="_frontend">Frontend Development</label>
         </span>
         <span>
           <input
@@ -34,11 +31,9 @@ function selectExpert() {
             v-model="selectedExpert"
             @change="selectExpert"
           />
-          <label for="_backend" 
-            >Backend Development</label
-          >
+          <label for="_backend">Backend Development</label>
         </span>
-        <span >
+        <span>
           <input
             id="_career"
             type="checkbox"
@@ -46,7 +41,7 @@ function selectExpert() {
             v-model="selectedExpert"
             @change="selectExpert"
           />
-          <label for="_career" >Career Advisory</label>
+          <label for="_career">Career Advisory</label>
         </span>
       </div>
     </div>

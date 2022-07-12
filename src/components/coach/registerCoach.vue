@@ -6,7 +6,7 @@ import { createToast } from "mosha-vue-toastify";
 import "mosha-vue-toastify/dist/style.css";
 import { useCoachStore } from "../../store/coaches.js";
 
-const router = useRouter()
+const router = useRouter();
 const firstName = ref("");
 const lastName = ref("");
 const description = ref("");
@@ -50,36 +50,35 @@ function sendRegisterRequest() {
         description: description.value,
         hourlyPrice: `$${hourlyPrice.value}/hour`,
         expertise: expertise.value,
-        
       }),
-    }).then((res) => {
-      if (res.ok) {
-        useCoachStore().isRegistered = true;
-        router.push("/coaches")
-        showAlert(
-          "Succesfull",
-          "Registration completed",
-          "success",
-          "bottom-left"
-        );
-      }else{
+    })
+      .then((res) => {
+        if (res.ok) {
+          useCoachStore().isRegistered = true;
+          router.push("/coaches");
+          showAlert(
+            "Succesfull",
+            "Registration completed",
+            "success",
+            "bottom-left"
+          );
+        } else {
+          showAlert(
+            "Unsuccesful",
+            "Registration has failed",
+            "danger",
+            "bottom-left"
+          );
+        }
+      })
+      .catch(() => {
         showAlert(
           "Unsuccesful",
           "Registration has failed",
           "danger",
           "bottom-left"
         );
-      }
-    })
-    .catch(()=>{
-        
-        showAlert(
-          "Unsuccesful",
-          "Registration has failed",
-          "danger",
-          "bottom-left"
-        );
-    })
+      });
   }
 }
 </script>
