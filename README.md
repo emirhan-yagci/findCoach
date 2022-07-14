@@ -26,4 +26,5 @@ $ yarn add mosha-vue-toastify
 ## Start Setup
 ![Demo](https://github.com/emirhan-yagci/findCoach/blob/main/public/resim_2022-07-12_125740409.png)
 
-[Go Live Demo](https://findcoachemirhanyagci.netlify.app)
+## Live Demo
+[Go Live Demo](https://findcoachemirhan.netlify.app/)
